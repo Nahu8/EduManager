@@ -1,0 +1,54 @@
+<ng-container [ngSwitch]="data.tipo">
+  <form *ngSwitchCase="'agregar'">
+    <div mat-dialog-content>
+      <div class="mb-2">
+        <label>Nombre y apellido:</label>
+        <input class="form-control" [(ngModel)]="data.alumno.nombre" name="nombre" />
+      </div>
+      <div class="mb-2">
+        <label>Edad:</label>
+        <input type="number" class="form-control" [(ngModel)]="data.alumno.edad" name="edad" />
+      </div>
+      <div class="mb-2">
+        <label>Curso:</label>
+        <input class="form-control" [(ngModel)]="data.alumno.curso" name="curso" />
+      </div>
+    </div>
+  </form>
+
+  <form *ngSwitchCase="'editar'">
+    <div mat-dialog-content>
+      <div class="mb-2">
+        <label>Nombre y apellido:</label>
+        <input class="form-control" [(ngModel)]="data.alumno.nombre" name="nombre" />
+      </div>
+      <div class="mb-2">
+        <label>Edad:</label>
+        <input type="number" class="form-control" [(ngModel)]="data.alumno.edad" name="edad" />
+      </div>
+      <div class="mb-2">
+        <label>Curso:</label>
+        <input class="form-control" [(ngModel)]="data.alumno.curso" name="curso" />
+      </div>
+    </div>
+  </form>
+
+  <div *ngSwitchCase="'eliminar'">
+    <div mat-dialog-content *ngIf="data.alumno" class="text-start">
+      <h1 class="text-danger text-center">¿Seguro que quieres eliminar a este alumno de la lista?</h1>
+      <p><strong>Nombre:</strong> {{ data.alumno.nombre }}</p>
+      <p><strong>Edad:</strong> {{ data.alumno.edad }}</p>
+      <p><strong>Curso:</strong> {{ data.alumno.curso }}</p>
+    </div>
+  </div>
+</ng-container>
+
+<div mat-dialog-actions style="justify-content: center;">
+  <button mat-button color="primary" (click)="onConfirm()">
+    <span class="material-symbols-outlined text-success">check_circle</span>
+  </button>
+  <button mat-button (click)="onClose()">
+    <span class="material-symbols-outlined text-danger">cancel</span>
+  </button>
+</div>
+

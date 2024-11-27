@@ -1,0 +1,28 @@
+<div class="container mt-3">
+  <h2 class="text-center"><b>Lista de Alumnos</b></h2>
+  <table class="table table-bordered">
+    <thead>
+      <tr class="text-center">
+        <th>ID</th>
+        <th>Nombre y Apellido</th>
+        <th>Edad</th>
+        <th>Curso</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of alumnos">
+        <td class="text-center">{{ alumno.id }}</td>
+        <td class="text-center">{{ alumno.nombre }}</td>
+        <td class="text-center">{{ alumno.edad }}</td>
+        <td class="text-center">{{ alumno.curso }}</td>
+        <button class="btn btn-sm" (click)="editarAlumno(alumno)"><span class="material-symbols-outlined">
+          edit
+          </span></button>
+        <button class="btn btn-sm" (click)="eliminarAlumno(alumno.id)"><span class="material-symbols-outlined text-danger">
+          delete
+          </span></button>
+      </tr>
+    </tbody>
+  </table>
+  <button class="btn btn-secondary mb-3" (click)="agregarAlumno()">Agregar Alumno</button>
+</div>
